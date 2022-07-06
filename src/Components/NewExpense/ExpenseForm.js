@@ -3,31 +3,18 @@ import React, { useState } from 'react';
 import '../NewExpense/NewExpense.css';
 import '../NewExpense/ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
 
-    // const [userInput, setUserInput] = useState({
-    //     enteredTitle: '',
-    //     enteredAmount: '',
-    //     enteredDate:''
-    // });
-
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
-
-        // setUserInput((prevState)=>{
-        //     return { ...prevState, enteredTitle: event.target.value};
-        // });
     }
 
     const amountChangeHandler = (event) => {
         setEnteredAmount(event.target.value);
-        // setUserInput((prevState)=>{
-        //     return { ...prevState, enteredAmount: event.target.value};
-        // });
     }
 
     const dateChangeHandler = (event) => {
@@ -38,7 +25,7 @@ const ExpenseForm = () => {
     }
 
     const submitHandler = (event) => {
-        event.preventDefault();//standard behaviour for js
+        event.preventDefault();//standard behaviour for js to not load the page every click button
 
         const expenseData = {
             title: enteredTitle,
@@ -46,7 +33,7 @@ const ExpenseForm = () => {
             date: new Date(enteredDate)
         };
 
-        console.log(expenseData);
+        props.onSaveExpenseData(expenseData);
 
         setEnteredTitle('');
         setEnteredAmount('');
