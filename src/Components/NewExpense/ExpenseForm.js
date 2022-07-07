@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import '../NewExpense/NewExpense.css';
 import '../NewExpense/ExpenseForm.css';
 
-const ExpenseForm = (props) => {
+const ExpenseForm = (props) => {//essa props eh a onSaveExpenseData
 
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');

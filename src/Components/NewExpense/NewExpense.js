@@ -2,7 +2,7 @@ import '../NewExpense/ExpenseForm.css';
 
 import ExpenseForm from '../NewExpense/ExpenseForm';
 
-const NewExpense = (props) => {
+const NewExpense = (props) => {// essa props eh a onAddExpense
 
     const saveExpenseDataHandler = (enteredExpenseData)=> {
         const expenseData={
@@ -11,7 +11,6 @@ const NewExpense = (props) => {
         };
         props.onAddExpense(expenseData);
     };
-
 
     return (
         <div className='new-expense'>
